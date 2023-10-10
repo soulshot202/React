@@ -1,0 +1,18 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20% 50px;
+  gap: 20px;
+  align-items: center;
+}
+.main p {
+  text-align: center;
+}
+.main > div {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
