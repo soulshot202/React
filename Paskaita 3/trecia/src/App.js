@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import ColorPicker from "./components/ColorPicker/ColorPicker";
+import "./App.css";
+import Button from "./components/Button/Button";
+import Display from "./components/Display/Display";
 
 function App() {
+  const [number, setNumber] = useState(2);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Button text={"add one"} onClick={() => setNumber((prev) => prev + 1)} />
+      <Display number={number} />
+      <Button
+        text={"Subtract one"}
+        onClick={() => setNumber((prev) => prev - 1)}
+      />
+      <ColorPicker />
     </div>
   );
 }
