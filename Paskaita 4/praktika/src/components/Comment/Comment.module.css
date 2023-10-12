@@ -1,0 +1,26 @@
+.comment p {
+  color: green;
+  margin-left: 20px;
+  margin-right: 50px;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.comment h6 {
+  color: red;
+  /* text-decoration: underline; */
+  margin: 10px auto;
+}
+.comment {
+  margin-left: 30px;
+}
+.comment span {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+.comment .com {
+  color: blue;
+  font-size: 0.7rem;
+  margin-bottom: 0;
+}
