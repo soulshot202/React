@@ -1,0 +1,7 @@
+.oneSize {
+  display: flex;
+  flex-direction: column;
+}
+.oneSize p {
+  margin: 0;
+}
