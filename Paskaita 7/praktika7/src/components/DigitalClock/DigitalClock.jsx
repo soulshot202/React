@@ -19,8 +19,14 @@ export default function DigitalClock() {
       <h4>{clock}</h4>
       <button
         onClick={() => {
-          clearInterval(intervalRef.current);
-          intervalRef.current = null;
+          if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+          } else {
+            intervalRef.current = setInterval(() => {
+              setTime(new Date());
+            }, 1000);
+          }
         }}>
         Stop
       </button>
