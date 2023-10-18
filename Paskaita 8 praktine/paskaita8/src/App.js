@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import styles from "./App.css";
+import TodoList from "./components/TodoList/TodoList";
+import Button from "./components/Button/Button";
+import React, { useEffect, useState, useRef } from "react";
+import addTodo from "./components/addTodo/addTodo";
 
 function App() {
+  const [disp, setDisp] = useState("App");
+  const [addTodo, setAddTodo] = useState("on");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className={disp}>
+        <TodoList className="off" />
+
+        <Button
+          btnName="Add new Todo"
+          onClick={() => {
+            setDisp("off");
+          }}
+        />
+      </div>
+      <div className={addTodo}>
+        <addTodo />
+      </div>
+    </>
   );
 }
 
