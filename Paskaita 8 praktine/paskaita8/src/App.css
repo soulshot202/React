@@ -3,23 +3,3 @@
   flex-direction: column;
   align-items: center;
 }
-
-.App button {
-  width: 150px;
-  height: 30px;
-  background-color: red;
-  border-radius: 5px;
-  color: white;
-  font-weight: bold;
-  border: 3px solid black;
-  cursor: pointer;
-}
-.off {
-  display: none;
-}
-.on {
-  display: block;
-}
-.red {
-  color: red;
-}

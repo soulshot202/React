@@ -1,3 +1,16 @@
 .todoList {
   display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.todoItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: rgb(253, 211, 125);
+  padding-bottom: 10px;
 }

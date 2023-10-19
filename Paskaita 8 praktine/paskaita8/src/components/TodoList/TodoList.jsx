@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TodoItem from "../TodoItem/TodoItem";
+import Button from "../Button/Button";
 import axios from "axios";
+
 import style from "./TodoList.module.css";
 
 const ENDPOINT = "http://localhost:3001/todos";
 
-export default function TodoList({ display }) {
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    const fetchTodos = async () => {
-      const { data } = await axios.get(ENDPOINT);
-      setTodos(data);
-    };
-    fetchTodos();
-  }, []);
-  console.log(todos);
-
+export default function TodoList({ display, todos, setTodos }) {
   return (
     <div className={style.todoList} display={display}>
       {todos.map((todo) => (
-        <TodoItem todo={todo} key={todo.id} />
+        <div className={style.todoItem}>
+          <TodoItem todo={todo} key={todo.id} setTodos={setTodos} />
+          <Button
+            btnName={"Delete todo"}
+            onClick={async () => {
+              await axios.delete(`http://localhost:3001/todos/${todo._id}`);
+              setTodos((todos) => todos.filter((t) => t._id !== todo._id));
+            }}
+          />
+        </div>
       ))}
     </div>
   );
