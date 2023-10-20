@@ -5,8 +5,6 @@ import axios from "axios";
 
 import style from "./TodoList.module.css";
 
-const ENDPOINT = "http://localhost:3001/todos";
-
 export default function TodoList({ display, todos, setTodos }) {
   return (
     <div className={style.todoList} display={display}>

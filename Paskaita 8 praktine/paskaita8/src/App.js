@@ -1,6 +1,6 @@
 import TodoList from "./components/TodoList/TodoList";
 import axios from "axios";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import AddTodo from "./components/addTodo/addTodo";
 
 const ENDPOINT = "http://localhost:3001/todos";
