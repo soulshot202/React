@@ -1,0 +1,13 @@
+1.Naudodami “React Router”, sukurkite SPA(Single page application), kuri turės šiuos “pagrindinius” komponentus:
+a.Header;
+b.Footer;
+2.Header dalyje turi būti:
+a.Logotipas;
+b.Meniu su nuorodomis atskirus puslapių komponentus:
+i.Pagrindinis, kuriame bus full width ir height paveikslėlis;
+ii.Apie mus, kuriame bus puslapio pavadinimas, nuotrauka ir tekstas;
+iii.Naujienos, kuriame bus is API(https://jsonplaceholder.typicode.com/posts) kraunama dvi naujienos su antrašte ir tekstu;
+iv.Paslaugos, kuriame bus 3 kortelės su paslaugos pavadinimu ir tekstu po ja;
+v.Atlikti darbai, pateikiamas 8 nuotraukos (4 stulpeliai);
+vi.Kontaktai, kontaktų forma (vardas, el. paštas, žinutė, ją pateikus atsiranda užrašas su padėka už pateikimą);
+3.Footer dalyje pateikiamas meniu (eilutėje) ir “Visos teisės saugomos”
