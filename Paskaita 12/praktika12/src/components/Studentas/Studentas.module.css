@@ -1,0 +1,16 @@
+.studentItem {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 22%;
+  border: 1px solid green;
+  border-radius: 15px;
+  background-color: aquamarine;
+}
+
+.studentItem span {
+  font-weight: bold;
+  margin-right: 10px;
+}
