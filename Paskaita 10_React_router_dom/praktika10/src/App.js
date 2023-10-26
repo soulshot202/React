@@ -9,6 +9,7 @@ import Portfolio from "./components/Portfolio/Portfolio";
 
 import { Routes, Route } from "react-router-dom";
 import Main from "./components/Main/Main";
+import NewsItem from "./components/NewsItem/NewsItem";
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/services" element={<Services />} />
         <Route path="/news" element={<News />} />
+        <Route path="/news/:id" element={<NewsItem />} />
+
         <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
       <Footer />

@@ -1,0 +1,22 @@
+.news {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.news h1 {
+  color: green;
+}
+.news li {
+  /* color: magenta; */
+}
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+.grey {
+  color: grey;
+}

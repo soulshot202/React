@@ -1,0 +1,18 @@
+.services {
+  display: flex;
+  margin: 30px;
+  gap: 10px;
+}
+
+.services article {
+  background-color: aquamarine;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: justify;
+}
+
+.services h1 {
+  text-align: center;
+  color: grey;
+}
