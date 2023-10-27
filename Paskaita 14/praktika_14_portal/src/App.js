@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import ItemsList from "./components/ItemsList/ItemsList";
+import { useState } from "react";
+import Modal from "./components/Modal/Modal";
 
 function App() {
+  const [cart, setCart] = useState([]);
+  const [Open, setOpen] = useState(true);
+  function handleButtonClick() {
+    setOpen((prev) => !prev);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="App">
+        <ItemsList setCart={setCart} Cart={cart} />
+        <Modal open={Open} cart={cart} setCart={setCart}>
+          {cart.map((item) => (
+            <p key={item.id}>
+              Preke: {item.name} kaina: {item.price} kiekis: {item.quantity}{" "}
+              suma: {item.quantity * item.price}
+              <button
+                onClick={() =>
+                  setCart((cart) => cart.filter((item) => !item.id))
+                }>
+                Pasalinti
+              </button>
+            </p>
+          ))}
+          <h6>Suma: {cart.reduce((a, b) => a + b.quantity * b.price, 0)}</h6>
+          <button>Pasalinti preke</button>
+        </Modal>
+      </div>
+      <button onClick={handleButtonClick}>Krepselis</button>
+      <button onClick={() => setCart([])}>Valyti krepseli</button>
     </div>
   );
 }

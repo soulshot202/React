@@ -1,0 +1,16 @@
+.itemsList {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+}
+
+.itemsList > div {
+  border: 2px solid grey;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: beige;
+  margin: 20px;
+}
