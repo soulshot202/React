@@ -15,8 +15,7 @@ describe("Card component", () => {
 
   it("should render buttons", () => {
     render(<Card />);
-    // const button = screen.getByRole("div", { name: "View on Twitter" });
-    // expect(button).toBeInTheDocument();
+
     const link = screen.getByRole("link", { name: "Twitter" });
     expect(link.textContent).toContain("Twitter");
 
