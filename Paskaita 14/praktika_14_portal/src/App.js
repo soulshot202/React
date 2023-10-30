@@ -21,7 +21,7 @@ function App() {
               suma: {item.quantity * item.price}
               <button
                 onClick={() =>
-                  setCart((cart) => cart.filter((item) => !item.id))
+                  setCart(() => cart.map((item) => item.id !== item.id))
                 }>
                 Pasalinti
               </button>
