@@ -21,14 +21,13 @@ function App() {
               suma: {item.quantity * item.price}
               <button
                 onClick={() =>
-                  setCart(() => cart.map((item) => item.id !== item.id))
+                  setCart(() => cart.map((prev) => prev.id !== item.id))
                 }>
                 Pasalinti
               </button>
             </p>
           ))}
           <h6>Suma: {cart.reduce((a, b) => a + b.quantity * b.price, 0)}</h6>
-          <button>Pasalinti preke</button>
         </Modal>
       </div>
       <button onClick={handleButtonClick}>Krepselis</button>

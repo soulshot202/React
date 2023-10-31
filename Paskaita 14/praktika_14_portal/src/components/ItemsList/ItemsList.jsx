@@ -49,17 +49,41 @@ export default function ItemsList({ setCart, Cart }) {
         </p>
         <button
           onClick={() => {
-            setCart([
-              ...Cart,
-              {
-                id: Cart.length + 1,
-                price: 8.5,
-                name: "Fermetinis suris",
-                quantity: quantity2,
-                suma: quantity2 * 8.5,
-              },
-            ]);
+            const index = Cart.findIndex(
+              (item) => item.name === "Fermentinis suris"
+            );
+            const CartCopy = [...Cart];
+            if (index === -1) {
+              setCart([
+                ...Cart,
+                {
+                  id: Cart.length + 1,
+                  price: 8.5,
+                  name: "Fermentinis suris",
+                  quantity: quantity2,
+                  suma: quantity2 * 8.5,
+                },
+              ]);
+            } else {
+              const quantity0 = CartCopy[index].quantity;
+              console.log(quantity0);
+              const qty = quantity0 + quantity2;
+              CartCopy.splice(index, 1);
+              setCart([
+                ...CartCopy,
+
+                {
+                  id: index,
+                  price: 8.5,
+                  name: "Fermetinis suris",
+                  quantity: qty,
+                  suma: qty * 8.5,
+                },
+              ]);
+            }
+
             setQuantity2(1);
+            return;
           }}>
           Buy
         </button>
