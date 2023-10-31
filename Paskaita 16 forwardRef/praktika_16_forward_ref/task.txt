@@ -1,0 +1,13 @@
+
+[19:51] Marius  Matulevičius
+    Task: Create a custom button component that allows you to listen
+     for hover events from a parent component.
+Steps:
+Create a new component called HoverableButton.
+Use the forwardRef function to forward the ref to the underlying button element.
+ Export the HoverableButton component.
+ In the parent component,  create a ref to the HoverableButton component.
+ Render the HoverableButton component and pass the ref to it.
+ To listen for hover events on the button element, use the ref.current property. 
+​
+    ant ref kintamojo panaudosite addEventListener funkciją, kad uždėti eventus iš tėvinio komponento
