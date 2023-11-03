@@ -1,0 +1,6 @@
+ Create a DataFetcher component that fetches data from a public API using the fetch API or a library like Axios.
+· The DataFetcher component should have a render prop function that takes the fetched data as an argument.
+· Use the useEffect (for functional components) to trigger the data fetching when the component is mounted.
+· Provide different render prop functions for the following display options:
+Render the data as a list.Render the data as a table.Render the data as individual cards.
+Endpoint: https://jsonplaceholder.typicode.com/posts
