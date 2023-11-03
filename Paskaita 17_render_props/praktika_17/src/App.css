@@ -1,0 +1,37 @@
+.App {
+  margin: 50px;
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+th,
+td {
+  border: 1px solid black;
+  padding: 10px;
+}
+article div {
+  width: 300px;
+  border-radius: 15px;
+  border: 1px solid blue;
+  text-align: center;
+  padding: 10px;
+  background-color: lightblue;
+}
+article {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 30px;
+}
+article > div > p:last-child {
+  text-align: justify;
+  color: blueviolet;
+}
+article div > h5 > p {
+  color: blue;
+}
+span {
+  color: green;
+  font-size: 1.2rem;
+}
