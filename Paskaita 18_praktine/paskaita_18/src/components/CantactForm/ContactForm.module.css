@@ -1,0 +1,65 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 50ox auto;
+  gap: 10px;
+  border: 1px solid rgb(29, 180, 67);
+  width: 400px;
+  padding: 40px;
+  border-radius: 20px;
+  flex-wrap: wrap;
+}
+.full input,
+.full textarea {
+  width: 100%;
+  margin-top: 10px;
+}
+.red:focus {
+  outline: none;
+  border: 3px solid red;
+}
+.green:focus {
+  outline: none;
+  border: 3px solid green;
+}
+.full select {
+  margin-top: 10px;
+}
+.full label {
+  font-weight: bold;
+}
+.container {
+  display: flex;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+.form > div {
+  width: 100%;
+}
+.form textarea {
+  width: 100%;
+}
+
+.buttons :first-child {
+  background-color: blueviolet;
+  color: white;
+}
+.buttons :last-child {
+  background-color: lightgray;
+  color: blueviolet;
+  margin-left: 10px;
+}
+.buttons button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.yesno {
+  display: flex;
+  gap: 10px;
+}
+.terms a {
+  text-decoration: none;
+}
