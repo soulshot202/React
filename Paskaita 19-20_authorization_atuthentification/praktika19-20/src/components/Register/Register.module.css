@@ -1,0 +1,33 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.register h1 {
+  color: blueviolet;
+}
+.register div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.register label {
+  font-weight: bold;
+}
+.register button {
+  margin: 10px auto;
+  display: flex;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(0, 255, 98);
+  color: black;
+  font-weight: bold;
+}
+.register button:hover {
+  background-color: rgb(255, 145, 0);
+  color: white;
+  cursor: pointer;
+}
