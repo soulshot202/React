@@ -11,15 +11,24 @@ export async function register(req, res) {
   if (!username || !password) {
     return res.status(400).json({ message: "All fields are required" });
   }
-  const hashedPassword = await bcrypt.hash(password, 10);
 
-  const newUser = new User({
-    username,
-    password: hashedPassword,
-  });
-  await newUser.save();
+  try {
+    const user = await User.findOne({ username });
+    if (user) {
+      return res.status(400).json({ message: "User already exists" });
+    }
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-  res.json({ user: newUser });
+    const newUser = new User({
+      username,
+      password: hashedPassword,
+    });
+    await newUser.save();
+
+    res.json({ user: newUser });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
 }
 
 export async function login(req, res) {
@@ -29,23 +38,27 @@ export async function login(req, res) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  const user = await User.findOne({ username });
+  try {
+    const user = await User.findOne({ username });
 
-  if (!user) {
-    return res.status(401).json({ message: "User not found" });
-  }
-
-  const isMatch = await bcrypt.compare(password, user.password);
-
-  const token = jwt.sign(
-    { id: user._id, username: user.username },
-    process.env.JWT_SECRET,
-    {
-      expiresIn: "1h",
+    if (!user) {
+      return res.status(401).json({ message: "User not found" });
     }
-  );
 
-  res.json({ token });
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    const token = jwt.sign(
+      { id: user._id, username: user.username },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "1h",
+      }
+    );
+
+    res.json({ token });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
 }
 
 export async function getUsers(req, res) {
