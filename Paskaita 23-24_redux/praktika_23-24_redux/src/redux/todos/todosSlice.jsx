@@ -40,13 +40,15 @@ const todosSlice = createSlice({
       todo.completed = !todo.completed;
     },
     filterTodos: (state, action) => {
-      if (action.payload === "completed") {
-        return state.filter((todo) => todo.completed);
-      } else if (action.payload === "not-completed") {
-        return state.filter((todo) => !todo.completed);
-      } else {
-        return state;
-      }
+      state.map((todo) => todo.completed);
+      console.log(state);
+      // if (action.payload === "completed") {
+      //   return state.filter((todo) => todo.completed);
+      // } else if (action.payload === "not-completed") {
+      //   return state.filter((todo) => !todo.completed);
+      // } else {
+      //   return state;
+      // }
     },
   },
 });
