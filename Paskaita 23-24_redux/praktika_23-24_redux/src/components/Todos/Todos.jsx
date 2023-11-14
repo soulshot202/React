@@ -17,9 +17,7 @@ export default function Todos() {
   return (
     <div>
       <h1>Todos</h1>
-      <button onClick={() => dispatch(filterTodos("completed"))}>
-        show completed
-      </button>
+      <button onClick={() => dispatch(filterTodos())}>show completed</button>
       <button onClick={() => dispatch(filterTodos("not-completed"))}>
         show NOT completed
       </button>
