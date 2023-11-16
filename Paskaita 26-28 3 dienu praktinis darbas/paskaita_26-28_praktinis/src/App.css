@@ -1,0 +1,17 @@
+.open {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+}
+
+.open button {
+  background-color: blue;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 5px;
+  z-index: 1;
+  cursor: pointer;
+  border: none;
+  display: flex;
+}
