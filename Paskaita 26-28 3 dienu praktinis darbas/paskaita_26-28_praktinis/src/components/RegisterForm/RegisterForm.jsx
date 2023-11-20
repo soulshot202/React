@@ -14,56 +14,58 @@ export default function RegisterForm({ open, setOpen }) {
     if (!Name || !Email || !Password) {
       return alert("Fill in all the fields");
     }
-    if (Name.length < 6 || Name.length > 32) {
-      return alert("Name must be between 6 and 32 characters");
-    }
-    if (!Email.includes("@")) {
-      return alert("Email must contain @");
-    }
-    if (!Email.includes(".")) {
-      return alert("Email must contain .");
-    }
-    if (Email.length < 6 || Email.length > 100) {
-      return alert("Email must be between 6 and 50 characters");
-    }
-    if (Password.length < 8) {
-      return alert("Password must be at least 8 characters");
-    }
 
-    if (Password.length < 6 || Password.length > 30) {
-      return alert("Password must be between 6 and 30 characters");
+    const validate = () => {
+      if (!validEmail.test(Email)) {
+        return alert("Please provide valid email");
+      }
+      if (!validPassword.test(Password)) {
+        return alert("Password must have numbers and letters");
+      }
+
+      return true;
+    };
+
+    if (!validate()) {
+      return;
+    } else {
+      try {
+        const { data } = await axios.post("http://localhost:3001/register", {
+          name: Name,
+          email: Email,
+          password: Password,
+        });
+        console.log(data);
+        setEmail("");
+        setName("");
+        setPassword("");
+        return alert("registration success");
+      } catch (error) {
+        if (error.message === "Request failed with status code 409") {
+          return alert("User with this email already exists");
+        }
+        if (error.message === "Request failed with status code 400") {
+          return alert("Please provide name, email and password");
+        }
+        if (error.message === "Request failed with status code 401") {
+          return alert("Password must be between 6 and 30 characters");
+        }
+        if (error.message === "Request failed with status code 402") {
+          return alert("Name must be between 6 and 32 characters");
+        }
+        if (error.message === "Request failed with status code 403") {
+          return alert("Email must contain @");
+        }
+        if (error.message === "Request failed with status code 404") {
+          return alert("Email must contain .");
+        }
+        if (error.message === "Request failed with status code 405") {
+          return alert("Email must be between 6 and 50 characters");
+        }
+      }
     }
-
-    try {
-      const { data } = await axios.post("http://localhost:3001/register", {
-        name: Name,
-        email: Email,
-        password: Password,
-      });
-      console.log(data);
-      setEmail("");
-      setName("");
-      setPassword("");
-      return alert("registration success");
-    } catch (error) {
-      return alert(error.message);
-    }
-
-    // const validate = () => {
-    //   if (!validEmail.test(Email)) {
-    //      return alert("Email is not valid")
-    //   }
-    //   if (!validPassword.test(Password)) {
-    //      return alert("Password is not valid")
-    //   }
-
-    // if (!validEmail.test(Email)) {
-    //   return alert("Email is not valid");
-    // }
-    // if (!validPassword.test(Password)) {
-    //   return alert("Password is not valid");
-    // }
   }
+
   return (
     <div className={styles.registerForm}>
       <Image url="https://img.freepik.com/free-photo/view-snowman-with-winter-landscape-snow_23-2150635342.jpg?t=st=1700154315~exp=1700157915~hmac=de7829df2b5213153ccb36c220294e1d1a51d8e7f69717adfc88c49060219d42&w=740" />
